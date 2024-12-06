@@ -1,9 +1,8 @@
 import { configureStore, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { createBoard } from "./utils/create-board";
-import { Chess } from "chess.js";
+import { Chess, Square } from "chess.js";
 import { ICell } from "./types";
 import { TypedUseSelectorHook, useSelector } from "react-redux";
-import toast from "react-simple-toasts";
 import { gameOver } from "./utils/game-over";
 import { socket } from "./socket";
 
@@ -50,7 +49,7 @@ const initialState: IGameState = {
 
 
 // Function to remove the extra character returned by chess.js for suggested moves, eg 'na3'
-const getPositions: [] = (moves: string[]) => {
+const getPositions = (moves: string[]) => {
     return moves.map(move => {
         const n = move.length;
         return move.substring(n - 2);
@@ -65,7 +64,7 @@ const gameSlice = createSlice({
             console.log("[setSelectedCell]");
             state.selectedCell = action.payload;
             state.possibleMoves = getPositions(chess.moves({
-                square: action.payload
+                square: action.payload as Square
             }));
 
             console.log("[]selectedCell", state.selectedCell);
