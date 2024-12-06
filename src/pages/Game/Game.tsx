@@ -21,7 +21,7 @@ const Game = () => {
     socket.emit('join', {
       name: 'Narendra Modi',
       gameID: gameState.room
-    }, (err, color) => {
+    }, (color: string) => {
       console.log("color assigned after `join` event", color);
     });
 

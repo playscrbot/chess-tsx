@@ -29,7 +29,7 @@ const Cell: React.FC<React.PropsWithChildren<CellProps>> = ({ cell, index }) => 
     };
 
     const handleDrop = () => {
-        dispatch(makeMove({from: selectedCell, to: cell.pos}));
+        dispatch(makeMove({from: selectedCell ?? '', to: cell.pos}));
     };
 
     return (

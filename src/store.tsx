@@ -18,7 +18,7 @@ export const chess = new Chess(FEN);
 export interface IGameState {
     room: string;
     board: ICell[];
-    possibleMoves?: [];
+    possibleMoves: string[];
     isCheck: boolean;
     isCheckMate: boolean;
     turn: string;

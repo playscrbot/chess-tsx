@@ -27,4 +27,6 @@ export const gameOver = (chess: Chess) => {
     if (chess.isDraw()) {
         return [true, 'draw'];
     }
+
+    return [false, ''];
 };

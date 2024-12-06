@@ -8,7 +8,7 @@ const GameOver: React.FC = () => {
     const { turn, status } = useAppSelector(state => state.game);
 
     // Determine winner
-    let winner;
+    let winner ='';
 
     if (status === "checkmate") {
         if (turn === 'w') {

@@ -1,11 +1,15 @@
 import React from 'react';
 
-const Layout: React.FC = ({ Content }) => {
+type LayoutProps = {
+    Content: React.ComponentType;
+};
+
+const Layout: React.FC<LayoutProps> = ({ Content }) => {
   return (
     <div className="container">
         <div className="app-logo">
             <a href="https://github.com/kunalvirk/chess-tsx" target='_blank'><img src={'/assets/images/app-icon.png'} alt="" /></a>
-            {/* <span>Chess TSX</span> */}
+            <span>Chess TSX</span>
         </div>
         <div className="flex">
             <div className="featured-img">

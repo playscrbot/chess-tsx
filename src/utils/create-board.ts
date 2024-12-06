@@ -18,10 +18,6 @@ class Cell implements ICell {
         };
     }
 }
-//  returns an array of range 1, n
-const range = (n: number): number[] => {
-    return Array.from({ length: n }, (_, i) => i + 1);
-};
 
 /**
  *
@@ -51,9 +47,13 @@ export const createBoard = (fenString: string): ICell[] => {
      * For ex: if the number is 4, we will fill that space with an array of 4 empty string ''
      * 
      */
+    const range = (n: number, fillValue: any = 1): any[] => {
+        return Array.from({ length: n }, () => fillValue);
+    };
+
     pieces.forEach((item, index) => {
         if (!isNaN(Number(item)) && isFinite(Number(item))) {
-            pieces.splice(index, 1, range(Number(item)).fill(''));
+            pieces.splice(index, 1, ...range(Number(item)), '');
         }
     });
 

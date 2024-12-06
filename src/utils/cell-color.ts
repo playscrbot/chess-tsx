@@ -5,8 +5,9 @@
   based on its index
  */
   export const isLightSquare = (position: string, index: number) => {
-    const row = position[1];
-    const isEven = (x) => !(x % 2);
+    const row = position.charCodeAt(1) - '1'.charCodeAt(0);
+    
+    const isEven = (x: number) => !(x % 2);
 
     if (isEven(row) && !isEven(index + 1)) {
         return true;
