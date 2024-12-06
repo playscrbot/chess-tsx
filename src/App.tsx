@@ -11,19 +11,8 @@ const App: React.FC = () => {
   const urlSearchParams = new URLSearchParams(window.location.search);
   const name: string | null = urlSearchParams.get('name');
 
-  if (name === null) {
-    // ask for a name and use it to start game
-    return (
-      <div className="App">
-        <header className="App-header">
-          <h1>Chess TSX</h1>
-          <p>Enter your name to start the game</p>
-        </header>
-      </div>
-    )
-  } else {
-    dispatch(createRoom(name));
-  }
+  // Create room
+  dispatch(createRoom(name ?? ''));
 
   return <Game />;
 };
