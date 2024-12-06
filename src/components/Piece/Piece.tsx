@@ -14,7 +14,8 @@ const Piece: React.FC<React.PropsWithChildren<PieceProps>> = ({
   const dispatch = useDispatch();
   const piece = useRef<HTMLImageElement>(null);
 
-  const color = name === name.toUpperCase() ? 'w' : 'b';
+  const color = typeof name === 'string' && name.toUpperCase() === name ? 'w' : 'b';
+  
   const imageName = color + name.toUpperCase();
 
   const fallback = () => `/assets/images/empty.png`;

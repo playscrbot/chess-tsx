@@ -21,10 +21,10 @@ const Cell: React.FC<React.PropsWithChildren<CellProps>> = ({ cell, index }) => 
     const isPossibleMove = possibleMoves.includes(cell.pos);
     
     // Determine the `piece` and `color`
-    const color = cell.piece.toUpperCase() === cell.piece ? 'w' : 'b';
+    const color = typeof cell.piece === 'string' && cell.piece.toUpperCase() === cell.piece ? 'w' : 'b';
 
     const inCheck = () => {
-        const king = cell.piece.toUpperCase() === 'K';
+        const king = typeof cell.piece === 'string' &&cell.piece.toUpperCase() === 'K';
         return turn === color && king && isCheck;
     };
 

@@ -14,7 +14,7 @@ const Board: React.FC<React.PropsWithChildren<BoardProps>> = ( { cells } ) => {
     return (
         <div className={`board ${isGameOver ? 'game-over' : ''}`}>
             {cells.map((cell, index) => (
-                <Cell cell={cell} index={index} key={cell.pos} />
+                <Cell key={`${cell.pos}_${index}`} cell={cell} index={index} />
             ))}
         </div>
     );
